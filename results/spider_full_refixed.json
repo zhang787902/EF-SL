@@ -1,0 +1,37 @@
+{
+  "baseline": {
+    "new_correct": 711,
+    "old_correct": 698,
+    "total": 1034,
+    "new_acc": 68.76208897485493,
+    "old_acc": 67.50483558994198
+  },
+  "lexical_sl": {
+    "new_correct": 658,
+    "old_correct": 650,
+    "total": 1034,
+    "new_acc": 63.63636363636363,
+    "old_acc": 62.86266924564797
+  },
+  "llm_sl": {
+    "new_correct": 679,
+    "old_correct": 667,
+    "total": 1034,
+    "new_acc": 65.66731141199227,
+    "old_acc": 64.50676982591877
+  },
+  "upgraded_ef_sl": {
+    "new_correct": 714,
+    "old_correct": 699,
+    "total": 1034,
+    "new_acc": 69.0522243713733,
+    "old_acc": 67.60154738878144
+  },
+  "oracle_sl": {
+    "new_correct": 753,
+    "old_correct": 741,
+    "total": 1034,
+    "new_acc": 72.82398452611218,
+    "old_acc": 71.66344294003868
+  }
+}

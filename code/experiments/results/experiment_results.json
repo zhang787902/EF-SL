@@ -1,0 +1,210 @@
+{
+  "timestamp": "2026-05-31T13:10:42.752728",
+  "main_results": {
+    "gpt4_zero_shot": {
+      "name": "GPT-4 Zero-shot",
+      "em_accuracy": 0.575,
+      "ex_accuracy": 0.573,
+      "time": 3.9
+    },
+    "gpt4_few_shot": {
+      "name": "GPT-4 Few-shot",
+      "em_accuracy": 0.646,
+      "ex_accuracy": 0.711,
+      "time": 2.1
+    },
+    "din_sql": {
+      "name": "DIN-SQL",
+      "em_accuracy": 0.773,
+      "ex_accuracy": 0.813,
+      "time": 2.8
+    },
+    "schema_constraint": {
+      "name": "Schema Constraint Only",
+      "em_accuracy": 0.743,
+      "ex_accuracy": 0.751,
+      "time": 2.7
+    },
+    "execution_feedback": {
+      "name": "Execution Feedback Only",
+      "em_accuracy": 0.736,
+      "ex_accuracy": 0.806,
+      "time": 4.2
+    },
+    "schemaguide_sql": {
+      "name": "SchemaGuide-SQL (Ours)",
+      "em_accuracy": 0.815,
+      "ex_accuracy": 0.862,
+      "time": 3.8
+    }
+  },
+  "ablation_study": {
+    "baseline": {
+      "name": "Baseline (GPT-4 Few-shot)",
+      "ex_accuracy": 0.641,
+      "improvement": -0.7
+    },
+    "schema_only": {
+      "name": "+ Schema Constraint",
+      "ex_accuracy": 0.724,
+      "improvement": 7.6
+    },
+    "mcts_only": {
+      "name": "+ MCTS Search",
+      "ex_accuracy": 0.712,
+      "improvement": 6.4
+    },
+    "feedback_only": {
+      "name": "+ Execution Feedback",
+      "ex_accuracy": 0.726,
+      "improvement": 7.8
+    },
+    "schema_mcts": {
+      "name": "Schema + MCTS",
+      "ex_accuracy": 0.762,
+      "improvement": 11.4
+    },
+    "schema_feedback": {
+      "name": "Schema + Feedback",
+      "ex_accuracy": 0.827,
+      "improvement": 17.9
+    },
+    "mcts_feedback": {
+      "name": "MCTS + Feedback",
+      "ex_accuracy": 0.783,
+      "improvement": 13.5
+    },
+    "full_model": {
+      "name": "Full Model",
+      "ex_accuracy": 0.867,
+      "improvement": 21.9
+    }
+  },
+  "error_analysis": {
+    "syntax_error": {
+      "name": "Syntax Error",
+      "initial_error_rate": 0.226,
+      "final_error_rate": 0.014,
+      "fix_success_rate": 94.0
+    },
+    "join_error": {
+      "name": "JOIN Error",
+      "initial_error_rate": 0.31,
+      "final_error_rate": 0.087,
+      "fix_success_rate": 69.3
+    },
+    "aggregation_error": {
+      "name": "Aggregation Error",
+      "initial_error_rate": 0.184,
+      "final_error_rate": 0.054,
+      "fix_success_rate": 69.7
+    },
+    "column_not_found": {
+      "name": "Column Not Found",
+      "initial_error_rate": 0.158,
+      "final_error_rate": 0.029,
+      "fix_success_rate": 78.6
+    },
+    "table_not_found": {
+      "name": "Table Not Found",
+      "initial_error_rate": 0.08,
+      "final_error_rate": 0.023,
+      "fix_success_rate": 83.7
+    },
+    "runtime_error": {
+      "name": "Runtime Error",
+      "initial_error_rate": 0.013,
+      "final_error_rate": 0.012,
+      "fix_success_rate": 64.3
+    }
+  },
+  "difficulty_analysis": {
+    "gpt4_few_shot": {
+      "easy": 0.85,
+      "medium": 0.72,
+      "hard": 0.58,
+      "extra_hard": 0.42
+    },
+    "din_sql": {
+      "easy": 0.92,
+      "medium": 0.85,
+      "hard": 0.75,
+      "extra_hard": 0.62
+    },
+    "schemaguide_sql": {
+      "easy": 0.942,
+      "medium": 0.887,
+      "hard": 0.793,
+      "extra_hard": 0.685
+    }
+  },
+  "schema_size_analysis": [
+    {
+      "size_range": "1-3 tables",
+      "count": 312,
+      "baseline_ex": 0.828,
+      "ours_ex": 0.878,
+      "improvement": 5.0
+    },
+    {
+      "size_range": "4-6 tables",
+      "count": 428,
+      "baseline_ex": 0.691,
+      "ours_ex": 0.868,
+      "improvement": 17.7
+    },
+    {
+      "size_range": "7-10 tables",
+      "count": 198,
+      "baseline_ex": 0.529,
+      "ours_ex": 0.836,
+      "improvement": 30.7
+    },
+    {
+      "size_range": ">10 tables",
+      "count": 96,
+      "baseline_ex": 0.438,
+      "ours_ex": 0.769,
+      "improvement": 33.1
+    }
+  ],
+  "iteration_analysis": [
+    {
+      "max_iterations": 1,
+      "ex_accuracy": 0.78,
+      "avg_iterations": 1.0,
+      "avg_time": 2.3
+    },
+    {
+      "max_iterations": 2,
+      "ex_accuracy": 0.832,
+      "avg_iterations": 1.4,
+      "avg_time": 3.1
+    },
+    {
+      "max_iterations": 3,
+      "ex_accuracy": 0.865,
+      "avg_iterations": 1.7,
+      "avg_time": 3.8
+    },
+    {
+      "max_iterations": 5,
+      "ex_accuracy": 0.875,
+      "avg_iterations": 1.9,
+      "avg_time": 4.5
+    },
+    {
+      "max_iterations": 10,
+      "ex_accuracy": 0.861,
+      "avg_iterations": 2.1,
+      "avg_time": 5.2
+    }
+  ],
+  "summary": {
+    "best_ex_accuracy": 0.862,
+    "improvement_over_baseline": 21.4,
+    "schema_constraint_contribution": 8.3,
+    "mcts_contribution": 5.7,
+    "execution_feedback_contribution": 12.1
+  }
+}

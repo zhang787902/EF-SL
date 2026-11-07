@@ -1,0 +1,1238 @@
+{
+  "Zero-shot": {
+    "baseline": "zero_shot",
+    "total": 50,
+    "em_accuracy": 0.4,
+    "ex_accuracy": 0.4,
+    "em_correct": 20,
+    "ex_correct": 20,
+    "time": 5.032190322875977,
+    "api_calls": 50,
+    "predictions": [
+      {
+        "question_id": "q0",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q1",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q2",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q3",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q4",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q5",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q6",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q7",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q8",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q9",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q10",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q11",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q12",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q13",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q14",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q15",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q16",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q17",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q18",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q19",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q20",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q21",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q22",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q23",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q24",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT name FROM instructor WHERE dept_name = 'CS'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q25",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > '50000'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q26",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q27",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q28",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q29",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT name FROM instructor WHERE dept_name = 'CS'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q30",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q31",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q32",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q33",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q34",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q35",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT names FROM instructor WHERE salary > 50000",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q36",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q37",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q38",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q39",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT name FROM instructor WHERE dept_name = 'CS'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q40",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q41",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q42",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q43",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q44",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q45",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > '50000'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q46",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q47",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q48",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q49",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT name FROM instructor WHERE dept_name = 'CS'",
+        "exact_match": false,
+        "execution_match": false
+      }
+    ]
+  },
+  "Few-shot": {
+    "baseline": "few_shot",
+    "total": 50,
+    "em_accuracy": 0.44,
+    "ex_accuracy": 0.44,
+    "em_correct": 22,
+    "ex_correct": 22,
+    "time": 5.040820360183716,
+    "api_calls": 50,
+    "predictions": [
+      {
+        "question_id": "q0",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q1",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q2",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q3",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q4",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q5",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > '50000'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q6",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q7",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q8",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q9",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q10",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q11",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q12",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q13",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT AVG(salary), dept_name FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q14",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q15",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q16",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT name FROM instructor WHERE dept_name = 'CS'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q17",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q18",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q19",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q20",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q21",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q22",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q23",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q24",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q25",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q26",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q27",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q28",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q29",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q30",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT names FROM instructor WHERE salary > 50000",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q31",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q32",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q33",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q34",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q35",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > '50000'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q36",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q37",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q38",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q39",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q40",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q41",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q42",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q43",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q44",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q45",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q46",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q47",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q48",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q49",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      }
+    ]
+  },
+  "Schema Constraint": {
+    "baseline": "schema_constraint",
+    "total": 50,
+    "em_accuracy": 0.48,
+    "ex_accuracy": 0.48,
+    "em_correct": 24,
+    "ex_correct": 24,
+    "time": 5.050426244735718,
+    "api_calls": 50,
+    "predictions": [
+      {
+        "question_id": "q0",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q1",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q2",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q3",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q4",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT name FROM instructor WHERE dept_name = 'CS'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q5",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q6",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q7",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q8",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q9",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q10",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q11",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q12",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q13",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q14",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q15",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q16",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q17",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q18",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q19",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q20",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q21",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q22",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q23",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q24",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q25",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > '50000'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q26",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q27",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q28",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q29",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT * FROM instructor",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q30",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q31",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q32",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q33",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q34",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT name FROM instructor WHERE dept_name = 'CS'",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q35",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q36",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q37",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT name, budget FROM department ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q38",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q39",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q40",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q41",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q42",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q43",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q44",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q45",
+        "question": "Find the name of instructors whose salary is greater than 50000",
+        "gold_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "pred_sql": "SELECT name FROM instructor WHERE salary > 50000",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q46",
+        "question": "What are the distinct departments of instructors?",
+        "gold_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "pred_sql": "SELECT DISTINCT dept_name FROM instructor",
+        "exact_match": true,
+        "execution_match": true
+      },
+      {
+        "question_id": "q47",
+        "question": "Find the name and budget of the department with the most employees",
+        "gold_sql": "SELECT T1.name, T1.budget FROM department AS T1 JOIN employee AS T2 ON T1.id = T2.dept_id GROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "pred_sql": "SELECT T1.name, T1.budget FROM department AS T1\nJOIN employee AS T2 ON T1.id = T2.department_id\nGROUP BY T1.id ORDER BY COUNT(*) DESC LIMIT 1",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q48",
+        "question": "What is the average salary of instructors in the Computer Science department?",
+        "gold_sql": "SELECT AVG(salary) FROM instructor WHERE dept_name = \"Comp. Sci.\"",
+        "pred_sql": "SELECT dept_name, AVG(salary) FROM instructor GROUP BY dept_name",
+        "exact_match": false,
+        "execution_match": false
+      },
+      {
+        "question_id": "q49",
+        "question": "List all courses taught by instructors from the Physics department",
+        "gold_sql": "SELECT T1.title FROM course AS T1 JOIN teaches AS T2 ON T1.course_id = T2.course_id JOIN instructor AS T3 ON T2.id = T3.id WHERE T3.dept_name = \"Physics\"",
+        "pred_sql": "SELECT T1.title FROM course AS T1\nJOIN teaches AS T2 ON T1.course_id = T2.course_id\nJOIN instructor AS T3 ON T2.id = T3.id\nWHERE T3.dept_name = 'Physics'",
+        "exact_match": true,
+        "execution_match": true
+      }
+    ]
+  }
+}

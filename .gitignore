@@ -1,0 +1,11 @@
+# Large data files
+code/bird_data/
+code/spider_data/
+code/data/
+*.sqlite
+*.db
+__pycache__/
+*.pyc
+*.log
+# Keep results JSON and CSV
+!results/

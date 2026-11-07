@@ -1,0 +1,57 @@
+{
+  "california_schools": {
+    "n": 10,
+    "zero": 2,
+    "back": 1
+  },
+  "financial": {
+    "n": 10,
+    "zero": 1,
+    "back": 2
+  },
+  "toxicology": {
+    "n": 10,
+    "zero": 2,
+    "back": 2
+  },
+  "card_games": {
+    "n": 10,
+    "zero": 2,
+    "back": 2
+  },
+  "codebase_community": {
+    "n": 10,
+    "zero": 8,
+    "back": 6
+  },
+  "superhero": {
+    "n": 10,
+    "zero": 8,
+    "back": 8
+  },
+  "formula_1": {
+    "n": 10,
+    "zero": 5,
+    "back": 5
+  },
+  "european_football_2": {
+    "n": 10,
+    "zero": 4,
+    "back": 3
+  },
+  "thrombosis_prediction": {
+    "n": 10,
+    "zero": 6,
+    "back": 7
+  },
+  "student_club": {
+    "n": 10,
+    "zero": 6,
+    "back": 8
+  },
+  "debit_card_specializing": {
+    "n": 10,
+    "zero": 3,
+    "back": 2
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "new": 274,
+    "old": 269
+  },
+  "lexical_sl": {
+    "new": 252,
+    "old": 250
+  },
+  "llm_sl": {
+    "new": 249,
+    "old": 245
+  },
+  "upgraded_ef_sl": {
+    "new": 271,
+    "old": 265
+  },
+  "oracle_sl": {
+    "new": 298,
+    "old": 292
+  }
+}
